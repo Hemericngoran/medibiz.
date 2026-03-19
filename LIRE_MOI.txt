@@ -1,0 +1,140 @@
+╔══════════════════════════════════════════════════════╗
+║   MEDIBIZ MANAGER ULTIMATE v3.0                      ║
+║   Guide Complet d'Installation et Déploiement        ║
+╚══════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════
+  NOUVEAUTÉS v3.0
+═══════════════════════════════════════════════
+
+✅ Authentification sécurisée (login/mot de passe)
+✅ Données partagées en temps réel (WebSocket)
+✅ Notifications automatiques par email :
+   - Ruptures de stock
+   - Factures impayées
+   - Lots proches de péremption
+✅ PWA — installable sur téléphone comme une app
+✅ Application Android (APK) générable
+✅ Déployable sur internet (Railway, Render...)
+✅ Sauvegarde automatique (database.json)
+✅ Journal complet de toutes les activités
+
+═══════════════════════════════════════════════
+  OPTION A — RÉSEAU LOCAL (sans internet)
+═══════════════════════════════════════════════
+
+1. Installer Node.js : https://nodejs.org (LTS)
+2. Double-cliquer sur INSTALLER.bat (2-5 min)
+3. Double-cliquer sur DEMARRER_SERVEUR.bat
+4. Note l'adresse affichée ex: http://192.168.1.10:3001
+5. Sur tous les PC/téléphones : ouvrir Chrome et taper cette adresse
+
+COMPTE PAR DÉFAUT :
+   Email    : admin@medibiz.ci
+   Mot de passe : medibiz2025
+   (À changer immédiatement après connexion !)
+
+═══════════════════════════════════════════════
+  OPTION B — INTERNET (Railway - Gratuit)
+═══════════════════════════════════════════════
+
+1. Créer un compte sur https://github.com
+2. Créer un nouveau repository "medibiz"
+3. Uploader tous les fichiers de ce dossier
+4. Aller sur https://railway.app
+5. "New Project" → "Deploy from GitHub repo"
+6. Sélectionner ton repo "medibiz"
+7. Dans "Variables" ajouter :
+   JWT_SECRET = une-clé-secrète-unique
+   ADMIN_EMAIL = ton-email@gmail.com (pour alertes)
+8. Railway te donne un lien : https://medibiz-xxx.railway.app
+9. Accessible depuis PARTOUT dans le monde !
+
+═══════════════════════════════════════════════
+  INSTALLER L'APP SUR TÉLÉPHONE (PWA)
+═══════════════════════════════════════════════
+
+Sur Android (Chrome) :
+   1. Ouvre l'URL de l'application dans Chrome
+   2. Menu ⋮ → "Ajouter à l'écran d'accueil"
+   3. L'app apparaît comme une vraie application !
+
+Sur iPhone (Safari) :
+   1. Ouvre l'URL dans Safari
+   2. Bouton Partager → "Sur l'écran d'accueil"
+   3. Confirmer → L'app est installée !
+
+═══════════════════════════════════════════════
+  GÉNÉRER UN APK ANDROID (Application Native)
+═══════════════════════════════════════════════
+
+Une fois l'app en ligne sur Railway :
+
+1. Va sur https://www.pwabuilder.com
+2. Entre l'URL de ton app Railway
+3. Clique "Package for stores"
+4. Choisis "Android" → Télécharge l'APK
+5. Installe l'APK sur les téléphones Android !
+
+═══════════════════════════════════════════════
+  CONFIGURER LES NOTIFICATIONS EMAIL
+═══════════════════════════════════════════════
+
+Pour Gmail :
+1. Activer l'authentification à 2 facteurs
+2. Aller dans : Compte Google → Sécurité → Mots de passe d'application
+3. Créer un mot de passe pour "MediBiz"
+4. Copier ce mot de passe
+
+Créer un fichier .env dans le dossier (ou configurer sur Railway) :
+   JWT_SECRET=votre-cle-secrete
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=587
+   SMTP_USER=votre@gmail.com
+   SMTP_PASS=mot-de-passe-application
+   ADMIN_EMAIL=email-qui-recoit-alertes@gmail.com
+
+Les alertes sont envoyées :
+   - Toutes les 30 minutes (vérification automatique)
+   - Chaque jour à 8h00
+   - Immédiatement après un changement de stock
+
+═══════════════════════════════════════════════
+  CRÉER DES COMPTES EMPLOYÉS
+═══════════════════════════════════════════════
+
+1. Connecte-toi en tant qu'Administrateur
+2. Menu → Utilisateurs → "+ Utilisateur"
+3. Remplis nom, email, mot de passe, rôle
+4. L'employé peut maintenant se connecter
+   avec son email et son mot de passe
+
+Rôles disponibles :
+   Administrateur  — Accès complet
+   Gestionnaire Stock — Stock, Lots, Inventaire
+   Commercial      — Ventes, Devis, Clients, Factures
+   Comptable       — Finances, Factures, Paiements
+   Observateur     — Lecture seule
+
+═══════════════════════════════════════════════
+  SAUVEGARDE DES DONNÉES
+═══════════════════════════════════════════════
+
+Les données sont sauvegardées dans : database.json
+Copie ce fichier régulièrement sur une clé USB
+ou un cloud (Google Drive, Dropbox) comme backup.
+
+Sur Railway, les données persistent automatiquement.
+
+═══════════════════════════════════════════════
+  SUPPORT
+═══════════════════════════════════════════════
+
+En cas de problème :
+- Relancer DEMARRER_SERVEUR.bat
+- Vérifier que Node.js est bien installé
+- S'assurer que tous les PC sont sur le même réseau
+
+╔══════════════════════════════════════════════════════╗
+║  MediBiz Distribution SARL · Abidjan, Côte d'Ivoire  ║
+╚══════════════════════════════════════════════════════╝
